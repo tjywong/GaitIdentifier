@@ -1,0 +1,3 @@
+# Laptop-side training only. The board needs nothing beyond App Lab's Python.
+numpy
+scikit-learn

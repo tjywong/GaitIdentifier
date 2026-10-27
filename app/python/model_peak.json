@@ -1,0 +1,15 @@
+{
+ "type": "peak_thresholds",
+ "direction": "-x",
+ "thresholds": [
+  -0.8178550004959106,
+  -0.6416150033473969,
+  -0.4146699905395508
+ ],
+ "labels": [
+  "standing",
+  "walking",
+  "biking",
+  "running"
+ ]
+}
