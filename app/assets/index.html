@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gait Identifier</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Gait Identifier</h1>
+        <span id="conn" class="pill off">connecting…</span>
+      </header>
+
+      <section>
+        <h2>Mode</h2>
+        <div class="seg" id="modes">
+          <button data-mode="idle">Idle</button>
+          <button data-mode="record">● Record</button>
+          <button data-mode="classify">Classify</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Activity <span class="hint">label for recordings</span></h2>
+        <div class="seg" id="labels"></div>
+      </section>
+
+      <section id="live" class="card">
+        <div id="live-record" hidden>
+          <div class="big"><span id="rec-seconds">0</span><small> s</small></div>
+          <div class="sub">recording <b id="rec-label"></b> → <code id="rec-file"></code></div>
+          <div class="sub dim">Aim for 1–3 min. Changing the activity starts a new file.</div>
+        </div>
+        <div id="live-classify" hidden>
+          <div class="preds">
+            <div><div class="tag">Model 1 · peak <span id="dir"></span></div><div class="big" id="m1">–</div></div>
+            <div><div class="tag">Model 2 · all IMU</div><div class="big" id="m2">–</div></div>
+          </div>
+          <div class="sub">peak <span id="peak">–</span> g</div>
+        </div>
+        <div id="live-idle" class="sub dim">Idle: samples are read but not saved.</div>
+        <div id="error" class="error" hidden></div>
+        <div class="sub dim">sensor stream: <span id="rate">–</span> Hz (should be ~50)</div>
+      </section>
+
+      <section>
+        <h2>Recordings <span class="hint" id="rec-summary"></span></h2>
+        <ul id="recordings"></ul>
+      </section>
+    </main>
+    <script src="libs/socket.io.min.js"></script>
+    <script src="libs/arduino.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

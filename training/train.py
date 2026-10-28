@@ -123,7 +123,7 @@ def export_peak(tree, direction):
         if lab != keep_labels[-1]:
             keep_cuts.append(cut)
             keep_labels.append(lab)
-    return {"type": "peak_thresholds", "direction": direction,
+    return {"type": "peak_thresholds", "feature": "peak_minus_mean", "direction": direction,
             "thresholds": keep_cuts, "labels": keep_labels}
 
 

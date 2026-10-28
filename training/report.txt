@@ -1,43 +1,43 @@
-data: data_synthetic
-windows: 820  recordings: 16
+data: data
+windows: 336  recordings: 9
 
-== Model 1 (peak accel along -x), cross-validated ==
-balanced accuracy: 0.938
+== Model 1 (peak accel along +x), cross-validated ==
+balanced accuracy: 0.982
 confusion matrix (rows = true, cols = predicted):
             standing  walking  running   biking
-standing         225        0        0        0
-walking            0      193        0        0
-running            0        0      207        0
-biking             0        0       48      147
+standing          18        0        0        0
+walking            0       37        0        0
+running            0        0       13        1
+biking             0        0        0       18
               precision    recall  f1-score   support
 
-    standing       1.00      1.00      1.00       225
-     walking       1.00      1.00      1.00       193
-     running       0.81      1.00      0.90       207
-      biking       1.00      0.75      0.86       195
+    standing       1.00      1.00      1.00        18
+     walking       1.00      1.00      1.00        37
+     running       1.00      0.93      0.96        14
+      biking       0.95      1.00      0.97        18
 
-    accuracy                           0.94       820
-   macro avg       0.95      0.94      0.94       820
-weighted avg       0.95      0.94      0.94       820
+    accuracy                           0.99        87
+   macro avg       0.99      0.98      0.98        87
+weighted avg       0.99      0.99      0.99        87
 
 
 == Model 2 (all IMU outputs, random forest), cross-validated ==
-balanced accuracy: 0.996
+balanced accuracy: 1.000
 confusion matrix (rows = true, cols = predicted):
             standing  walking  running   biking
-standing         225        0        0        0
-walking            0      193        0        0
-running            0        0      207        0
-biking             0        3        0      192
+standing          18        0        0        0
+walking            0       37        0        0
+running            0        0       14        0
+biking             0        0        0       18
               precision    recall  f1-score   support
 
-    standing       1.00      1.00      1.00       225
-     walking       0.98      1.00      0.99       193
-     running       1.00      1.00      1.00       207
-      biking       1.00      0.98      0.99       195
+    standing       1.00      1.00      1.00        18
+     walking       1.00      1.00      1.00        37
+     running       1.00      1.00      1.00        14
+      biking       1.00      1.00      1.00        18
 
-    accuracy                           1.00       820
-   macro avg       1.00      1.00      1.00       820
-weighted avg       1.00      1.00      1.00       820
+    accuracy                           1.00        87
+   macro avg       1.00      1.00      1.00        87
+weighted avg       1.00      1.00      1.00        87
 
-Model 1 thresholds (g): {"direction": "-x", "thresholds": [-0.8178550004959106, -0.6416150033473969, -0.4146699905395508], "labels": ["standing", "walking", "biking", "running"]}
+Model 1 thresholds (g): {"direction": "+x", "thresholds": [0.25105054676532745, 0.7413849532604218, 1.5709354281425476], "labels": ["standing", "walking", "biking", "running"]}

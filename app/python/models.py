@@ -16,6 +16,11 @@ class PeakModel:
     """
 
     def __init__(self, spec):
+        # Older exports used the raw peak (gravity included); their thresholds
+        # don't fit features.peak_accel any more.
+        if spec.get("feature") != "peak_minus_mean":
+            raise ValueError("model_peak.json is from the old raw-peak feature; "
+                             "retrain with training/train.py")
         self.direction = spec["direction"]
         self.thresholds = spec["thresholds"]
         self.labels = spec["labels"]

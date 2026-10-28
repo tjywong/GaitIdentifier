@@ -19,10 +19,13 @@ _AXIS = {"x": 0, "y": 1, "z": 2}
 
 
 def peak_accel(window, direction):
-    """Peak acceleration (g) along one signed axis, e.g. '+x' or '-z'."""
+    """Peak acceleration (g) along one signed axis, e.g. '+x' or '-z', measured
+    from the window's mean. Subtracting the mean removes gravity, so the value
+    reflects how hard the movement is rather than how the sensor is tilted."""
     sign = 1.0 if direction[0] == "+" else -1.0
     i = _AXIS[direction[1]]
-    return max(sign * s[i] for s in window)
+    mean = sum(s[i] for s in window) / len(window)
+    return max(sign * (s[i] - mean) for s in window)
 
 
 # ---------------------------------------------------------------- model 2

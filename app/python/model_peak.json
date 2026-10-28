@@ -1,10 +1,11 @@
 {
  "type": "peak_thresholds",
- "direction": "-x",
+ "feature": "peak_minus_mean",
+ "direction": "+x",
  "thresholds": [
-  -0.8178550004959106,
-  -0.6416150033473969,
-  -0.4146699905395508
+  0.25105054676532745,
+  0.7413849532604218,
+  1.5709354281425476
  ],
  "labels": [
   "standing",

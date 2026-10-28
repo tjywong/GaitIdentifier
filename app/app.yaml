@@ -1,4 +1,6 @@
 name: Gait Identifier
 description: Ankle-worn MPU6050 that tells standing, walking, running and biking apart with two non-neural models.
 icon: 🦶
-bricks: []
+ports: []
+bricks:
+- arduino:web_ui: {}
